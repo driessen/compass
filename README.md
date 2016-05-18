@@ -24,7 +24,7 @@ The user is asked for how granular to make the table and if `show_dev` and
 
 
 ### Example run 1
-
+```
 % python compass.py
 Table granularity in degrees (default 1): 15
 Show deviation [Y/n]: n
@@ -52,10 +52,10 @@ Show deviation [Y/n]: n
 315.0   N       N       NW      NW      NW
 330.0   N       N       NW      NNW     NWbN
 345.0   N       N       N       NNW     NbW
-
+```
 
 ### Example run 2
-
+```
 % python compass.py
 Table granularity in degrees (default 1): 30
 Show deviation [Y/n]:
@@ -72,10 +72,10 @@ Round deviation to integer [y/N]: y
 270.0   N -90   W +0    W +0    W +0    W +0
 300.0   N -60   W +30   NW -15  WNW +8  NWbW -4
 330.0   N -30   N -30   NW +15  NNW -8  NWbN +4
-
+```
 
 ### Example run 3
-
+```
 % python compass.py
 Table granularity in degrees (default 1): 5
 Show deviation [Y/n]:
@@ -152,3 +152,4 @@ Round deviation to integer [y/N]:
 345.0   N -15.0 N -15.0 N -15.0 NNW +7.5        NbW -3.75
 350.0   N -10.0 N -10.0 N -10.0 N -10.0 NbW +1.25
 355.0   N -5.0  N -5.0  N -5.0  N -5.0  N -5.0
+```
