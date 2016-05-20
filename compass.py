@@ -1,3 +1,5 @@
+#!/bin/env python
+
 import math
 
 DIRECTION = \
@@ -42,6 +44,8 @@ if __name__ == "__main__":
     else:
         step = float(step_reply)
 
+    degs = [x for x in frange(0.0, 360.0, step)]
+
     show_dev_reply = raw_input("Show deviation [Y/n]: ")
     show_dev = show_dev_reply != "n" and show_dev_reply != "N"
 
@@ -50,14 +54,20 @@ if __name__ == "__main__":
         round_dev = round_dev_reply == "y" or round_dev_reply == "Y"
     else:
         round_dev = False
-            
-    degs = [x for x in frange(0.0, 360.0, step)]
-    dir2 = [compass_direction(deg, 2, show_dev, round_dev) for deg in degs];
-    dir4 = [compass_direction(deg, 4, show_dev, round_dev) for deg in degs];
-    dir8 = [compass_direction(deg, 8, show_dev, round_dev) for deg in degs];
-    dir16 = [compass_direction(deg, 16, show_dev, round_dev) for deg in degs];
-    dir32 = [compass_direction(deg, 32, show_dev, round_dev) for deg in degs];
 
-    for (d, d2, d4, d8, d16, d32) in zip(degs, dir2, dir4, dir8, dir16, dir32):
-        print str(d) + "\t" + d2 + "\t" + d4 + "\t" + d8 + "\t" + d16 + "\t" + d32
+    num_dirs_reply = raw_input("Number of dirs (default 2,4,8,16,32): ")
+
+    if num_dirs_reply:
+        dirs = [compass_direction(deg, float(num_dirs_reply), show_dev, round_dev) for deg in degs];
+        for (d, direc) in zip(degs, dirs):
+            print str(d) + "\t" + direc
+    else:
+        dir2 = [compass_direction(deg, 2, show_dev, round_dev) for deg in degs];
+        dir4 = [compass_direction(deg, 4, show_dev, round_dev) for deg in degs];
+        dir8 = [compass_direction(deg, 8, show_dev, round_dev) for deg in degs];
+        dir16 = [compass_direction(deg, 16, show_dev, round_dev) for deg in degs];
+        dir32 = [compass_direction(deg, 32, show_dev, round_dev) for deg in degs];
+
+        for (d, d2, d4, d8, d16, d32) in zip(degs, dir2, dir4, dir8, dir16, dir32):
+            print str(d) + "\t" + d2 + "\t" + d4 + "\t" + d8 + "\t" + d16 + "\t" + d32
 
