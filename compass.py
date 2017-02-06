@@ -2,6 +2,7 @@
 
 import math
 
+
 DIRECTION = \
       ["N", "NbE", "NNE", "NEbN", "NE", "NEbE", "ENE", "EbN",
        "E", "EbS", "ESE", "SEbE", "SE", "SEbS", "SSE", "SbE",
